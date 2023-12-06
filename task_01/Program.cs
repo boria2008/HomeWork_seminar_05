@@ -1,6 +1,4 @@
-﻿using System.Runtime.InteropServices;
-
-Console.Clear();
+﻿Console.Clear();
 
 // Задача 1: Напишите программу, которая на вход принимает позиции элемента в двумерном массиве,
 // и возвращает значение этого элемента или же указание, что такого элемента нет.
@@ -38,7 +36,15 @@ Console.WriteLine("enter the line number");
 int i = int.Parse(Console.ReadLine()!);
 Console.WriteLine("enter the column number");
 int j = int.Parse(Console.ReadLine()!);
-Console.WriteLine($"Элемент матрицы с индексом [{i},{j}] = {matr[i, j]}");
+if (i >= matr.GetLength(0) || i < 0 || j >= matr.GetLength(1) || j < 0)
+{
+    Console.WriteLine($"Элемента матрицы с индексом [{i},{j}] нет");
+}
+else Console.WriteLine($"Элемент матрицы с индексом [{i},{j}] = {matr[i, j]}");
+
+
+
+
 
 
 
