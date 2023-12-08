@@ -30,6 +30,7 @@ void PrintMatrix(int[,] matrix)// Метод принимает двумерны
         Console.WriteLine();
     }
 }
+
 int[,] matr = CreateIntMatrix(5, 5, -100, 100);
 PrintMatrix(matr);
 Console.WriteLine("enter the line number");

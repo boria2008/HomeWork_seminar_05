@@ -14,11 +14,12 @@ int[,] CreateIntMatrix(int rowes, int columns, int minInt, int maxInt) // Мет
     {
         for (int j = 0; j < columns; j++)
         {
-            matrix[i, j] = rand.Next(minInt, maxInt);
+            matrix[i, j] = rand.Next(minInt, maxInt + 1);
         }
     }
     return matrix;
 }
+
 void PrintMatrix(int[,] matrix) // Метод принимает двумерный массив и выводит его на экран.
 {
     for (int i = 0; i < matrix.GetLength(0); i++)
@@ -30,6 +31,7 @@ void PrintMatrix(int[,] matrix) // Метод принимает двумерн�
         Console.WriteLine();
     }
 }
+
 int[,] ChangeMatrixRowes(int[,] matrix) //Метод принимает двумерный массив и
 //возвращает двумерный массив в котором поменяны местами первая и последняя строки. 
 {
@@ -41,6 +43,7 @@ int[,] ChangeMatrixRowes(int[,] matrix) //Метод принимает двум
     }
     return matrix;
 }
+
 int[,] matr = CreateIntMatrix(5, 5, -100, 100);
 Console.Write("The matrix before the change:\n");
 PrintMatrix(matr);
