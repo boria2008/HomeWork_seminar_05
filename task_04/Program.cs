@@ -33,7 +33,7 @@ void PrintMatrix(int[,] matrix) // Метод принимает двумерн�
     }
 }
 
-int[] SearchMinIndexesValueOfMatrix(int[,] matrix)  // Метод принимает двумерный массив и
+int[] GetIndexesMinValueOfMatrix(int[,] matrix)  // Метод принимает двумерный массив и
 // возвращает одномерный массив размерностью [2] с индексами наименьшего значения двумерного массива.
 {
     int[] array = new int[2]; //он уже заполнен нулями
@@ -57,7 +57,7 @@ int[,] DeletedRowColumnMatrix(int[,] matrix)  // Метод принимает �
 // массива и возвращает новый двумерный массив без этих строки и столбца.
 {
     int[,] newMatrix = new int[matrix.GetLength(0) - 1, matrix.GetLength(1) - 1];
-    int[] arr = SearchMinIndexesValueOfMatrix(matrix);
+    int[] arr = GetIndexesMinValueOfMatrix(matrix);
     for (int i = 0, n = 0; i < newMatrix.GetLength(0); i++, n++)
     {
         for (int j = 0, m = 0; j < newMatrix.GetLength(1); j++, m++)
@@ -81,7 +81,7 @@ Console.WriteLine("Исходная матрица:");
 PrintMatrix(matr);
 Console.WriteLine(
     $"Индексы минимального элемента матрицы[{string.Join(
-        "\t", SearchMinIndexesValueOfMatrix(matr))}]");
+        "\t", GetIndexesMinValueOfMatrix(matr))}]");
 Console.WriteLine("Матрица без строки и столбца исходной матрицы, содержащих минимальный элемент:");
 PrintMatrix(
     DeletedRowColumnMatrix(matr));
