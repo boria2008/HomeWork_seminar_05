@@ -52,7 +52,9 @@ int[] SearchMinIndexesValueOfMatrix(int[,] matrix)  // Метод принима
     return array;
 }
 
-int[,] DeletedRowColumnMatrix(int[,] matrix)
+int[,] DeletedRowColumnMatrix(int[,] matrix)  // Метод принимает двумерный массив,
+// удаляет строку и столбец, на пересечении которых расположен наименьший элемент исходного
+// массива и возвращает новый двумерный массив без этих строки и столбца.
 {
     int[,] newMatrix = new int[matrix.GetLength(0) - 1, matrix.GetLength(1) - 1];
     int[] arr = SearchMinIndexesValueOfMatrix(matrix);
