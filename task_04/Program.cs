@@ -42,8 +42,9 @@ int[] SearchMinIndexesValueOfMatrix(int[,] matrix)  // Метод принима
     {
         for (int j = 0; j < matrix.GetLength(1); j++)
         {
-            if (matrix[i, j] < minValue) 
+            if (matrix[i, j] < minValue)
             {
+                minValue = matrix[i, j];
                 array[0] = i; array[1] = j;
             }
         }
@@ -51,8 +52,34 @@ int[] SearchMinIndexesValueOfMatrix(int[,] matrix)  // Метод принима
     return array;
 }
 
+int[,] DeletedRowColumnMatrix(int[,] matrix)
+{
+    int[,] newMatrix = new int[matrix.GetLength(0) - 1, matrix.GetLength(1) - 1];
+    int[] arr = SearchMinIndexesValueOfMatrix(matrix);
+    for (int i = 0, n = 0; i < newMatrix.GetLength(0); i++, n++)
+    {
+        for (int j = 0, m = 0; j < newMatrix.GetLength(1); j++, m++)
+        {
+            if (n == arr[0])
+            {
+                n++;
+            }
+            if (m == arr[1])
+            {
+                m++;
+            }
+            newMatrix[i, j] = matrix[n, m];
+        }
+    }
+    return newMatrix;
+}
 
-
-int[,] matr = CreateIntMatrix(2, 3, 0, 10);
+int[,] matr = CreateIntMatrix(4, 4, 0, 10);
+Console.WriteLine("Исходная матрица:");
 PrintMatrix(matr);
-Console.WriteLine($"[{string.Join("\t", SearchMinIndexesValueOfMatrix(matr))}]");
+Console.WriteLine(
+    $"Индексы минимального элемента матрицы[{string.Join(
+        "\t", SearchMinIndexesValueOfMatrix(matr))}]");
+Console.WriteLine("Матрица без строки и столбца исходной матрицы, содержащих минимальный элемент:");
+PrintMatrix(
+    DeletedRowColumnMatrix(matr));
